@@ -1,5 +1,9 @@
 # iOSGetMACAddress
-iOS simple way to get mac address after iOS 7.
+iOS another way to get mac address after iOS 7.
+
+## Why
+Since iOS 7.0, you cannot using sysctl() or ioctl() to get MAC address(normal way).
+[Link (the most bottom)](https://developer.apple.com/library/content/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html)
 
 ## Steps
 1. Connection to any Wi-Fi.

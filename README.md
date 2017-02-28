@@ -6,6 +6,10 @@ Since iOS 7.0, you cannot easily using sysctl() or ioctl() to get MAC address(no
 <br />
 [Link (the most bottom)](https://developer.apple.com/library/content/releasenotes/General/WhatsNewIniOS/Articles/iOS7.html)
 
+```
+In iOS 7 and later, if you ask for the MAC address of an iOS device, the system returns the value 02:00:00:00:00:00. If you need to identify the device, use the identifierForVendor property of UIDevice instead. (Apps that need an identifier for their own advertising purposes should consider using the advertisingIdentifier property of ASIdentifierManager instead.)
+```
+
 ## Steps
 1. Connection to any Wi-Fi.
 2. Get current IP address of Wi-Fi.

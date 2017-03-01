@@ -56,10 +56,8 @@
 
 - (IBAction)getMacAddress:(id)sender {
     NSString *ip = [Address currentIPAddressOf:@"en0"];
-    NSLog(@"%@", ip);
     [ICMP sendICMPEchoRequestTo:ip];
     NSString *mac = [ARP macAddressOf:ip];
-    NSLog(@"%@", mac);
     _macAddressLabel.text = [NSString stringWithFormat:@"MAC Address: %@",
                              mac ? mac : @"Not Found"];
 }

@@ -17,6 +17,7 @@
 		D715C24C1E65865300AC8829 /* ICMP.m in Sources */ = {isa = PBXBuildFile; fileRef = D715C24B1E65865300AC8829 /* ICMP.m */; };
 		D715C24F1E65868000AC8829 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = D715C24E1E65868000AC8829 /* Address.m */; };
 		D715C2551E658A8C00AC8829 /* ARP.m in Sources */ = {isa = PBXBuildFile; fileRef = D715C2541E658A8C00AC8829 /* ARP.m */; };
+		D7D0769A1E76B2A8002A2060 /* MDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = D7D076991E76B2A8002A2060 /* MDNS.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,8 @@
 		D715C24E1E65868000AC8829 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Address.m; sourceTree = "<group>"; };
 		D715C2531E658A8C00AC8829 /* ARP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARP.h; sourceTree = "<group>"; };
 		D715C2541E658A8C00AC8829 /* ARP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARP.m; sourceTree = "<group>"; };
+		D7D076981E76B2A8002A2060 /* MDNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNS.h; sourceTree = "<group>"; };
+		D7D076991E76B2A8002A2060 /* MDNS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNS.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +89,8 @@
 				D715C24E1E65868000AC8829 /* Address.m */,
 				D715C2531E658A8C00AC8829 /* ARP.h */,
 				D715C2541E658A8C00AC8829 /* ARP.m */,
+				D7D076981E76B2A8002A2060 /* MDNS.h */,
+				D7D076991E76B2A8002A2060 /* MDNS.m */,
 			);
 			path = "iOS MAC addr";
 			sourceTree = "<group>";
@@ -133,7 +138,7 @@
 		D715C2231E6582B800AC8829 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0820;
 				ORGANIZATIONNAME = TUTU;
 				TargetAttributes = {
 					D715C22A1E6582B800AC8829 = {
@@ -182,6 +187,7 @@
 				D715C24F1E65868000AC8829 /* Address.m in Sources */,
 				D715C2551E658A8C00AC8829 /* ARP.m in Sources */,
 				D715C24C1E65865300AC8829 /* ICMP.m in Sources */,
+				D7D0769A1E76B2A8002A2060 /* MDNS.m in Sources */,
 				D715C2361E6582B800AC8829 /* ViewController.m in Sources */,
 				D715C2331E6582B800AC8829 /* AppDelegate.m in Sources */,
 				D715C2481E65844300AC8829 /* Reachability.m in Sources */,
@@ -229,6 +235,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -277,6 +284,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -308,6 +316,7 @@
 				DEVELOPMENT_TEAM = 88VL98WHS8;
 				INFOPLIST_FILE = "iOS MAC addr/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lresolv";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TUTU.iOS-MAC-addr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -320,6 +329,7 @@
 				DEVELOPMENT_TEAM = 88VL98WHS8;
 				INFOPLIST_FILE = "iOS MAC addr/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-lresolv";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.TUTU.iOS-MAC-addr";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -344,6 +354,7 @@
 				D715C2441E6582B800AC8829 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

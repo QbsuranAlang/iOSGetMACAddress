@@ -11,6 +11,7 @@
 #import "Address.h"
 #import "ICMP.h"
 #import "ARP.h"
+#import "MDNS.h"
 
 @interface ViewController ()
 
@@ -54,11 +55,25 @@
     }//end else
 }
 
+#define SYSTEM_VERSION_EQUAL_TO(v)                  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedSame)
+#define SYSTEM_VERSION_GREATER_THAN(v)              ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedDescending)
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN(v)                 ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] == NSOrderedAscending)
+#define SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(v)     ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedDescending)
+
 - (IBAction)getMacAddress:(id)sender {
-    NSString *ip = [Address currentIPAddressOf:@"en0"];
-    [ICMP sendICMPEchoRequestTo:ip];
-    NSString *mac = [ARP macAddressOf:ip];
+    NSString *mac = nil;
+    if(SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"10.1")) {
+        NSString *ip = [Address currentIPAddressOf:@"en0"];
+        [ICMP sendICMPEchoRequestTo:ip];
+        mac = [ARP macAddressOf:ip];
+    }//end if ios version is less than or equal to 10.1
+    else {
+        mac = [MDNS getMacAddressFromMDNS];
+    }//end else
+    
     _macAddressLabel.text = [NSString stringWithFormat:@"MAC Address: %@",
                              mac ? mac : @"Not Found"];
+    NSLog(@"%@", [MDNS getMacAddressFromMDNS]);
 }
 @end

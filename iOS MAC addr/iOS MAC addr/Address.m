@@ -10,6 +10,7 @@
 #import <ifaddrs.h>
 #import <netinet/ip.h>
 #import <arpa/inet.h>
+#import <net/ethernet.h>
 
 @implementation Address
 
@@ -67,5 +68,23 @@
     
     return [NSString stringWithString:buf];
 }//end linkLayerNtop:
+
++ (BOOL)macAddress: (nonnull NSString *)addr1 isEqualTo:(nonnull NSString *)addr2 {
+    struct ether_addr ether_addr1, ether_addr2;
+    
+    struct ether_addr *tmp;
+    
+    tmp = ether_aton(([addr1 UTF8String]));
+    if(!tmp)
+        return NO;
+    memcpy(&ether_addr1, tmp, sizeof(ether_addr1));
+    
+    tmp = ether_aton([addr2 UTF8String]);
+    if(!tmp)
+        return NO;
+    memcpy(&ether_addr2, tmp, sizeof(ether_addr2));
+    
+    return memcmp(&ether_addr1, &ether_addr2, sizeof(struct ether_addr)) == 0 ? YES : NO;
+}//end macAddress: isEqualTo:
 
 @end

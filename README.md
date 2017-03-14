@@ -13,21 +13,23 @@ If you need to identify the device, use the identifierForVendor property of UIDe
 (Apps that need an identifier for their own advertising purposes should consider using the advertisingIdentifier property of ASIdentifierManager instead.)
 ```
 
-## Steps
+## Way1: iOS version is less than or equal to 10.1
 1. Connect to any Wi-Fi.
 2. Get current IP address of Wi-Fi.
-
-## iOS version is less than or equal to 10.1
 1. Send ICMP echo request(ping) to the IP address.(not the IP address, 127.0.0.1)
 2. Walk whole ARP table to search the MAC address of current IP address of Wi-Fi.
 3. Get your MAC address.
 
-## iOS version is less than or equal to 10.2.1
+## Way2: iOS version is less than or equal to 10.2.1
+1. Connect to any Wi-Fi.
+2. Get current IP address of Wi-Fi.
 1. Send ICMP echo request(ping) to the IP address.(not the IP address, 127.0.0.1)
 2. Get an ARP entry by current IP address of Wi-Fi.
 3. Get your MAC address.
 
-## iOS version is greater than 10.1(or lesser version)
+## Way3: iOS version is greater than 10.1(or lesser version)
+1. Connect to any Wi-Fi.
+2. Get current IP address of Wi-Fi.
 1. Send MDNS query that question "\_apple-mobdev2.\_tcp.local" with PTR record.
 2. Response data will content MAC address.
 3. Get your MAC address.

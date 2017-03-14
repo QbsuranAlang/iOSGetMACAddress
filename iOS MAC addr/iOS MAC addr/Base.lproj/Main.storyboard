@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="15G1004" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11524"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,8 +27,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MAC Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esZ-Pj-Nxc">
-                                <rect key="frame" x="134" y="254" width="108.5" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Way1)MAC Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="esZ-Pj-Nxc">
+                                <rect key="frame" x="108" y="254" width="160.5" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -40,13 +40,29 @@
                                     <action selector="getMacAddress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CzQ-tI-5wX"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Way2)MAC Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VLx-bp-yqw">
+                                <rect key="frame" x="107" y="283" width="162.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(Way3)MAC Address:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="65R-57-HIM">
+                                <rect key="frame" x="107" y="312" width="163" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="65R-57-HIM" firstAttribute="centerX" secondItem="VLx-bp-yqw" secondAttribute="centerX" id="19v-EQ-oTZ"/>
+                            <constraint firstItem="VLx-bp-yqw" firstAttribute="top" secondItem="esZ-Pj-Nxc" secondAttribute="bottom" constant="8" id="Bg5-OQ-OiX"/>
+                            <constraint firstItem="VLx-bp-yqw" firstAttribute="centerX" secondItem="esZ-Pj-Nxc" secondAttribute="centerX" id="FUq-gZ-vJw"/>
+                            <constraint firstItem="N0z-uA-VQg" firstAttribute="top" secondItem="65R-57-HIM" secondAttribute="bottom" constant="33" id="P73-Ka-9SG"/>
                             <constraint firstItem="esZ-Pj-Nxc" firstAttribute="centerX" secondItem="wGl-3C-p9o" secondAttribute="centerX" id="R8g-sm-x9s"/>
                             <constraint firstItem="N0z-uA-VQg" firstAttribute="centerX" secondItem="esZ-Pj-Nxc" secondAttribute="centerX" id="S0E-nn-ofE"/>
+                            <constraint firstItem="65R-57-HIM" firstAttribute="top" secondItem="VLx-bp-yqw" secondAttribute="bottom" constant="8" id="YO4-4c-Uhc"/>
                             <constraint firstItem="wGl-3C-p9o" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="184" id="YUD-d8-QhX"/>
-                            <constraint firstItem="N0z-uA-VQg" firstAttribute="top" secondItem="esZ-Pj-Nxc" secondAttribute="bottom" constant="91" id="dab-0m-7Y9"/>
                             <constraint firstItem="esZ-Pj-Nxc" firstAttribute="top" secondItem="wGl-3C-p9o" secondAttribute="bottom" constant="29" id="nRE-JV-w5S"/>
                             <constraint firstItem="wGl-3C-p9o" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="nwZ-6E-NDE"/>
                         </constraints>
@@ -54,7 +70,9 @@
                     <connections>
                         <outlet property="getAddressButton" destination="N0z-uA-VQg" id="Kab-sr-ja9"/>
                         <outlet property="iosVersionLabel" destination="wGl-3C-p9o" id="nWr-bn-7c3"/>
-                        <outlet property="macAddressLabel" destination="esZ-Pj-Nxc" id="0Bq-JC-er6"/>
+                        <outlet property="macAddress1Label" destination="esZ-Pj-Nxc" id="nu2-04-NIE"/>
+                        <outlet property="macAddress2Label" destination="VLx-bp-yqw" id="Edz-av-Ezz"/>
+                        <outlet property="macAddress3Label" destination="65R-57-HIM" id="bND-vF-hTF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

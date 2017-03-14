@@ -35,4 +35,7 @@ If you need to identify the device, use the identifierForVendor property of UIDe
 3. Get your MAC address.
 
 ## Result
-<img src="example.PNG">
+Include 2 different iOS version.<br />
+<img src="example2.png">
+<br />
+<img src="example1.png">

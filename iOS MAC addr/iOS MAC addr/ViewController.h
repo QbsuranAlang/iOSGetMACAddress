@@ -10,9 +10,14 @@
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *iosVersionLabel;
-@property (weak, nonatomic) IBOutlet UILabel *macAddressLabel;
 - (IBAction)getMacAddress:(id)sender;
 @property (weak, nonatomic) IBOutlet UIButton *getAddressButton;
+
+@property (weak, nonatomic) IBOutlet UILabel *macAddress1Label;
+@property (weak, nonatomic) IBOutlet UILabel *macAddress2Label;
+@property (weak, nonatomic) IBOutlet UILabel *macAddress3Label;
+
+
 
 
 @end

@@ -63,17 +63,21 @@
 
 - (IBAction)getMacAddress:(id)sender {
     NSString *mac = nil;
-    if(SYSTEM_VERSION_LESS_THAN_OR_EQUAL_TO(@"10.1")) {
-        NSString *ip = [Address currentIPAddressOf:@"en0"];
-        [ICMP sendICMPEchoRequestTo:ip];
-        mac = [ARP macAddressOf:ip];
-    }//end if ios version is less than or equal to 10.1
-    else {
+    NSString *ip = [Address currentIPAddressOf:@"en0"];
+    [ICMP sendICMPEchoRequestTo:ip];
+    mac = [ARP walkMACAddressOf:ip];
+    
+    if(!mac || [Address macAddress:mac isEqualTo:DUMMY_MAC_ADDR]) {
+        NSLog(@"Walk ARP table fail.\n");
+        mac = [ARP MACAddressOf:ip];
+    }//end if
+    
+    if(!mac || [Address macAddress:mac isEqualTo:DUMMY_MAC_ADDR]) {
+        NSLog(@"Get ARP entry fail.\n");
         mac = [MDNS getMacAddressFromMDNS];
-    }//end else
+    }//end if
     
     _macAddressLabel.text = [NSString stringWithFormat:@"MAC Address: %@",
                              mac ? mac : @"Not Found"];
-    NSLog(@"%@", [MDNS getMacAddressFromMDNS]);
 }
 @end

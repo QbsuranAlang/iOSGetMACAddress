@@ -13,6 +13,11 @@
 /**
  * @return nil on error, otherwise return mac address
  */
-+ (nullable NSString *)macAddressOf: (nonnull NSString *)ipAddress;
++ (nullable NSString *)walkMACAddressOf: (nonnull NSString *)ipAddress;
+
+/**
+ * @return nil on error, otherwise return mac address
+ */
++ (nullable NSString *)MACAddressOf: (nonnull NSString *)ipAddress;
 
 @end

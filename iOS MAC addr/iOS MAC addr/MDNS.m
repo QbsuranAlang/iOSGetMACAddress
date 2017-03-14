@@ -9,6 +9,7 @@
 #import "MDNS.h"
 #import "Address.h"
 #import <resolv.h>
+#import <netdb.h>
 
 #define MDNS_PORT 5353
 #define QUERY_NAME "_apple-mobdev2._tcp.local"
@@ -34,14 +35,14 @@
     int len;
     //send mdns query
     if((len = res_query(QUERY_NAME, ns_c_in, ns_t_ptr, response, sizeof(response))) < 0) {
-        fprintf(stderr, "res_search failed\n");
+        fprintf(stderr, "res_search(): %s\n", hstrerror(h_errno));
         return nil;
     }//end if
     
     //parse mdns message
     ns_msg handle;
     if(ns_initparse(response, len, &handle) < 0) {
-        fprintf(stderr, "ns_initparse failed\n");
+        fprintf(stderr, "ns_initparse(): %s\n", hstrerror(h_errno));
         return nil;
     }//end if
     
